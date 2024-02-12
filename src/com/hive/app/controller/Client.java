@@ -9,7 +9,6 @@ public class Client {
         String groupId = "groupId";
         // Server URL to report CPU usage
          
-    
         CpuUsageViewModel viewModel = new CpuUsageViewModel();
         double cpuUsage = new  CpuUsage().getCpuUsage();
         viewModel.reportCPUUsage(clientId,groupId, cpuUsage);
