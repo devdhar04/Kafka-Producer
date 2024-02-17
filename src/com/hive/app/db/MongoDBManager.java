@@ -2,7 +2,6 @@ package com.hive.app.db;
 
 import org.bson.Document;
 
-import com.mongodb.Block;
 import com.mongodb.ConnectionString;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;

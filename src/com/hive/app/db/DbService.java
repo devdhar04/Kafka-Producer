@@ -1,10 +1,6 @@
 package com.hive.app.db;
 
 import org.bson.Document;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import com.mongodb.client.MongoCollection;
 

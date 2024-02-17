@@ -10,6 +10,9 @@ interface ICpuUsage {
 }
 
 public class CpuUsage implements ICpuUsage {
+	
+	
+	@Override
 	public double getCpuUsage() {
 		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
 		return osBean.getSystemLoadAverage();
