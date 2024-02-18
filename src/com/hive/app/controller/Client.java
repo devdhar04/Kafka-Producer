@@ -8,11 +8,26 @@ public class Client {
 		// Client ID, replace with actual client ID
 		String clientId = "client1";
 		String groupId = "groupId";
-		// Server URL to report CPU usage
 
-		CpuUsageViewModel viewModel = new CpuUsageViewModel();
-		double cpuUsage = new CpuUsage().getCpuUsage();
-		viewModel.reportCPUUsage(clientId, groupId, cpuUsage);
-		System.out.println("sending Data");
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				while(true) {
+				try {
+					Thread.sleep(6000);
+					CpuUsageViewModel viewModel = new CpuUsageViewModel();
+					viewModel.reportCPUUsage(clientId, groupId);
+					System.out.println("sending Data");
+
+				} catch (InterruptedException e) {
+					System.out.println("Thread interrupted");
+				}
+
+			}
+			}
+		}).start();
+
 	}
 }

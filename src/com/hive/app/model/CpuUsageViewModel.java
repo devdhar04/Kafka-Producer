@@ -1,26 +1,31 @@
 package com.hive.app.model;
 
+import com.hive.app.controller.CpuUsage;
+import com.hive.app.controller.ReportingService;
+
 public class CpuUsageViewModel implements CpuUsageModelInterface{
 	
-
-	private final CpuUsageModel cpuUsageModel;
+	private ReportingService reportingService;
 
 	public CpuUsageViewModel() {
-		cpuUsageModel = new CpuUsageModel();
+		reportingService = new ReportingService();
 	}
 
-	public double getCPUUsage() {
-		return cpuUsageModel.getCPUUsage();
-	}
-    
 	@Override
-	public void reportCPUUsage(String clientId, String groupId, double cpuUsage) {
-		cpuUsageModel.reportCPUUsage(clientId, groupId, cpuUsage);
+	public double getCPUUsage() {
+		return CpuUsage.getInstance().getCpuUsage();
+	}
+
+	@Override
+	public void reportCPUUsage(String clientId, String groupId) {
+		reportingService.reportCPUUsage(clientId, groupId, getCPUUsage());
 	}
 }
 
 
 interface CpuUsageModelInterface {
 	
-	void reportCPUUsage(String clientId, String groupId, double cpuUsage);
+	public double getCPUUsage();
+	
+	void reportCPUUsage(String clientId, String groupId);
 }

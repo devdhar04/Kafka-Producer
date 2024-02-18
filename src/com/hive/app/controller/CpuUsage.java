@@ -11,6 +11,17 @@ interface ICpuUsage {
 
 public class CpuUsage implements ICpuUsage {
 	
+	 private static CpuUsage instance;
+	    
+	    private CpuUsage() {}
+	    
+	    public static synchronized CpuUsage getInstance() {
+	        if (instance == null) {
+	            instance = new CpuUsage();
+	        }
+	        return instance;
+	    }
+	
 	
 	@Override
 	public double getCpuUsage() {
